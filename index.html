@@ -53,9 +53,36 @@
             }
         });
     </script>
+    <style>
+        #about {
+            display: none;
+            position: absolute;
+            z-index: 7001;
+            width: 300px;
+            top: 40px;
+            left: 40px;
+            font: 14px 'Voces', Arial, sans-serif;
+            color: white;
+            line-height: 1.3rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="about" style="display: block;">
+
+        <b>aframe-environment-component</b>
+        <p>A component for adding procedural environments to your <a href="http://aframe.io">A-Frame</a> demos and experiences.</p>
+        <p>
+          Press <b>ctrl + alt + i</b> to enter inspector and tweak parameters.</p>
+        <p>
+  
+          <a href="http://github.com/feiss/aframe-environment-component">GitHub / How to use it</a>
+        </p>
+    </div>
     <a-scene>
         <a-assets>
             <img id="city" crossorigin="anonymous" src="./01.jpg">
