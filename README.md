@@ -1,4 +1,4 @@
-evercool-360-2024
+[evercool-360-2024](https://dirkarnez.github.io/evercool-360-2024/)
 =================
 From [dirkarnez/aframe-360-image](https://github.com/dirkarnez/aframe-360-image)
 
