@@ -13,12 +13,10 @@
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-    <script
-        src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-
-        <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.1/dist/aframe-text-geometry-component.min.js"></script>
-        <script src="https://cdn.rawgit.com/richardanaya/aframe-canvas/master/index.js"></script>
-        <script src="https://ejeinc.github.io/aframe-canvas-text/canvas-text.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/richardanaya/aframe-canvas/master/index.js"></script>
+    <script src="https://ejeinc.github.io/aframe-canvas-text/canvas-text.js"></script>
 
     <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
@@ -34,8 +32,9 @@
     </script>
 
     <script>
-        AFRAME.registerComponent('log', {
+        AFRAME.registerComponent('evercool-component', {
             init: function () {
+                // set init sky here instead of at <a-sky>
                 this.el.setAttribute('src', "#city");
             },
             tick: function () {
@@ -59,25 +58,17 @@
 <body>
     <a-scene>
         <a-assets>
-            <img id="city" crossorigin="anonymous"
-                src="./01.jpg"><!--  src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"> -->
-            <img id="city-thumb" crossorigin="anonymous"
-                src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-            <img id="cubes-thumb" crossorigin="anonymous"
-                src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-            <img id="sechelt-thumb" crossorigin="anonymous"
-                src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-            <audio id="click-sound" crossorigin="anonymous"
-                src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-            <img id="cubes" crossorigin="anonymous"
-                src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-            <img id="sechelt" crossorigin="anonymous"
-                src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-
+            <img id="city" crossorigin="anonymous" src="./01.jpg">
+            <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+            <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+            <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+            <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+            <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
         </a-assets>
-
+        
         <!-- 360-degree image.src="#city" -->
-        <a-sky log id="image-360" radius="10" 
+        <a-sky evercool-component id="image-360" radius="10" 
             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
         </a-sky>
@@ -87,7 +78,7 @@
         <a-plane position="3.859 -1.340 -1.109" rotation="0 -45 0" width="5" height="5" canvas-material="width:256; height:256" canvas-text="text: 你好トーニカルマンドーレポポ; font: 80px serif; fillStyle: #006064"></a-plane>
         
         <a-text value="你好世界" font="custom-msdf.json" position="-0.389 0.25 -1.5" rotation="0 15 0" negate="false"></a-text>
-        
+
         <!-- Image links. -->
         <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
             <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
