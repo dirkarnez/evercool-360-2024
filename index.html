@@ -35,20 +35,25 @@
         AFRAME.registerComponent('evercool-component', {
             init: function () {
                 // set init sky here instead of at <a-sky>
-                this.el.setAttribute('src', "#city");
+                this.el.setAttribute('src', "#room_01");
             },
             tick: function () {
+                Array
+                .from(document.getElementById("links").children)
+                .forEach(link => link.setAttribute("visible", false));
+
                 const sky = this.el.getAttribute('material').src.id;
                 if (sky == "sechelt") {
                     document.getElementById("testing").setAttribute("value", "YES")
                 } else {
                     document.getElementById("testing").setAttribute("value", "No")
                 }
-                if (sky == "city") {
-                    this.el.setAttribute("rotation", {x: 0, y: -92, z: 0})  
-                    console.log("is city")
-                } else {
-                    console.log("is not city")
+
+                if (sky == "room_01") {
+                    this.el.setAttribute("rotation", {x: 0, y: -92, z: 0});
+                    document.getElementById("link_room_01_to_room_02").setAttribute("visible", true);
+                } else if (sky == "room_02") {
+                    document.getElementById("link_room_02_to_room_01").setAttribute("visible", true);
                 }
             }
         });
@@ -85,13 +90,16 @@
     </div>
     <a-scene>
         <a-assets>
-            <img id="city" crossorigin="anonymous" src="./01.jpg">
             <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
             <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
             <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
             <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
             <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
             <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+
+            <img id="room_01" crossorigin="anonymous" src="./01.jpg">
+            <img id="room_02" crossorigin="anonymous" src="./02.jpg">
+            
         </a-assets>
         
         <!-- 360-degree image.src="#city" -->
@@ -107,9 +115,10 @@
         <a-text value="你好世界" font="custom-msdf.json" position="-0.389 0.25 -1.5" rotation="0 15 0" negate="false"></a-text>
 
         <!-- Image links. -->
-        <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
-            <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-            <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+        <a-entity id="links">
+            <a-entity id="link_room_01_to_room_02" template="src: #link" data-src="#room_02" data-thumb="#city-thumb" position="-4.273 0 -3.880" rotation="0 45 0"></a-entity>
+            <a-entity id="link_room_02_to_room_01" template="src: #link" data-src="#room_01" data-thumb="#cubes-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
+            <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb" position="0 0 -6"></a-entity>
             <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
         </a-entity>
 
