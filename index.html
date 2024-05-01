@@ -88,28 +88,28 @@
 
 <body>
     <div id="about">
-        <button class="about-button" id="btn1">工廠外景</button>
-        <button class="about-button" id="btn2">電焊車內部</button>
-        <button class="about-button" id="btn3">工廠正門</button>
-        <button class="about-button" id="btn4">進入工廠區</button>
-        <button class="about-button" id="btn5">辦公大樓外</button>
-        <button class="about-button" id="btn6">盤管車間外</button>
-        <button class="about-button" id="btn7">盤管車間內部</button>
-        <button class="about-button" id="btn8">電控車間內部</button>
-        <button class="about-button" id="btn9">辦公大樓內部</button>
-        <button class="about-button" id="btn10">二樓辦公區域</button>
-        <button class="about-button" id="btn11">茶水間</button>
-        <button class="about-button" id="btn12">會議室內部</button>
-        <button class="about-button" id="btn13">榮譽牆</button>
-        <button class="about-button" id="btn14">裝卸平台</button>
-        <button class="about-button" id="btn15">鈑金車間</button>
-        <button class="about-button" id="btn16">PU發泡車間</button>
-        <button class="about-button" id="btn17">裝配車間</button>
-        <button class="about-button" id="btn18">空調產品綜合性能實驗室外部</button>
-        <button class="about-button" id="btn19">空調產品綜合性能實驗室內部</button>
-        <button class="about-button" id="btn20">倉庫</button>
-        <button class="about-button" id="btn21">氬弧焊車間</button>
-        <button class="about-button" id="btn22">表面處理車間</button>
+        <button class="about-button" id="btn1" onclick="jumpTo('#room-01')">工廠外景</button>
+        <button class="about-button" id="btn2" onclick="jumpTo('#room-02')">電焊車內部</button>
+        <button class="about-button" id="btn3" onclick="jumpTo('#room-03')">工廠正門</button>
+        <button class="about-button" id="btn4" onclick="jumpTo('#room-04')">進入工廠區</button>
+        <button class="about-button" id="btn5" onclick="jumpTo('#room-05')">辦公大樓外</button>
+        <button class="about-button" id="btn6" onclick="jumpTo('#room-06')">盤管車間外</button>
+        <button class="about-button" id="btn7" onclick="jumpTo('#room-07')">盤管車間內部</button>
+        <button class="about-button" id="btn8" onclick="jumpTo('#room-08')">電控車間內部</button>
+        <button class="about-button" id="btn9" onclick="jumpTo('#room-09')">辦公大樓內部</button>
+        <button class="about-button" id="btn10" onclick="jumpTo('#room-10')">二樓辦公區域</button>
+        <button class="about-button" id="btn11" onclick="jumpTo('#room-11')">茶水間</button>
+        <button class="about-button" id="btn12" onclick="jumpTo('#room-12')">會議室內部</button>
+        <button class="about-button" id="btn13" onclick="jumpTo('#room-13')">榮譽牆</button>
+        <button class="about-button" id="btn14" onclick="jumpTo('#room-14')">裝卸平台</button>
+        <button class="about-button" id="btn15" onclick="jumpTo('#room-15')">鈑金車間</button>
+        <button class="about-button" id="btn16" onclick="jumpTo('#room-16')">PU發泡車間</button>
+        <button class="about-button" id="btn17" onclick="jumpTo('#room-17')">裝配車間</button>
+        <button class="about-button" id="btn18" onclick="jumpTo('#room-18')">空調產品綜合性能實驗室外部</button>
+        <button class="about-button" id="btn19" onclick="jumpTo('#room-19')">空調產品綜合性能實驗室內部</button>
+        <button class="about-button" id="btn20" onclick="jumpTo('#room-20')">倉庫</button>
+        <button class="about-button" id="btn21" onclick="jumpTo('#room-21')">氬弧焊車間</button>
+        <button class="about-button" id="btn22" onclick="jumpTo('#room-22')">表面處理車間</button>
         <!-- <b>aframe-environment-component</b>
         <p>A component for adding procedural environments to your <a href="http://aframe.io">A-Frame</a> demos and experiences.</p>
         <p>
@@ -196,6 +196,11 @@
                 event-set__mouseleave="_event: mouseleave; color: black" raycaster="objects: .link"></a-cursor>
         </a-entity>
     </a-scene>
+    <script>
+        function jumpTo(imageIdWithNumberSign) {
+            document.getElementById("image-360").setAttribute('src', imageIdWithNumberSign/*"#room-09"*/);
+        }
+    </script>
 </body>
 
 </html>
