@@ -59,7 +59,9 @@
             },
             setEnabled: function(el, enabled) {
                 el.setAttribute("visible", enabled);
-                !enabled && el.setAttribute("scale", "0 0 0");
+                if (!enabled) {
+                    el.setAttribute("scale", "0 0 0");
+                }
             }
         });
     </script>
