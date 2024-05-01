@@ -134,7 +134,7 @@
                 this.setEnabled(document.getElementById("link-room-22-to-room-20"), isInRoom22);
                 
                 if (isInRoom01) {
-                    document.getElementById("image-360").setAttribute("rotation", {x: 0, y: -92, z: 0});
+                    this.el.setAttribute("rotation", {x: 0, y: -92, z: 0});
                 }
             },
             setEnabled: function(targetEl, enabled) {
