@@ -21,7 +21,7 @@
     <!-- Image link template to be reused. #image-360 is the a-sky -->
     <script id="link" type="text/html">
         <a-entity class="link"
-            geometry="primitive: plane; height: 1; width: 1"
+            geometry="primitive: plane; height: 1; width: 2"
             material="shader: flat; src: ${thumb}"
             sound="on: click; src: #click-sound"
             event-set__mouseenter="scale: 1.2 1.2 1"
@@ -35,32 +35,31 @@
         AFRAME.registerComponent('evercool-component', {
             init: function () {
                 // set init sky here instead of at <a-sky>
-                this.el.setAttribute('src', "#room_01");
+                this.el.setAttribute('src', "#room-01");
             },
             tick: function () {
-                Array
-                .from(document.getElementById("links").children)
-                .forEach(link => link.setAttribute("visible", false));
-
                 const sky = this.el.getAttribute('material').src.id;
-                if (sky == "sechelt") {
-                    document.getElementById("testing").setAttribute("value", "YES")
-                } else {
-                    document.getElementById("testing").setAttribute("value", "No")
-                }
+                // if (sky == "sechelt") {
+                //     document.getElementById("testing").setAttribute("value", "YES")
+                // } else {
+                //     document.getElementById("testing").setAttribute("value", "No")
+                // }
 
-                if (sky == "room_01") {
+                const isInRoom01 = sky == "room-01";
+                const isInRoom02 = sky == "room-02";
+
+                this.setEnabled(document.getElementById("link-room-01-to-room-02"), isInRoom01);
+                this.setEnabled(document.getElementById("link-room-02-to-room-01"), isInRoom02);
+
+                if (isInRoom01) {
                     this.el.setAttribute("rotation", {x: 0, y: -92, z: 0});
-                    this.setEnabled(document.getElementById("link_room_01_to_room_02"), false);
-                } else if (sky == "room_02") {
-                    document.getElementById("link_room_02_to_room_01").setAttribute("visible", true);
+                } else if (sky == "room-02") {
+                    
                 }
             },
             setEnabled: function(el, enabled) {
                 el.setAttribute("visible", enabled);
-                if (!enabled) {
-                    el.setAttribute("scale", "0 0 0");
-                }
+                !enabled && el.setAttribute("scale", "0 0 0");
             }
         });
     </script>
@@ -121,17 +120,54 @@
     </div>
     <a-scene>
         <a-assets>
-            <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-            <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-            <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+            <img id="room-01-thumb" crossorigin="anonymous" src="./01-thumb.png">
+            <img id="room-02-thumb" crossorigin="anonymous" src="./02-thumb.png">
+            <img id="room-03-thumb" crossorigin="anonymous" src="./03-thumb.png">
+            <img id="room-04-thumb" crossorigin="anonymous" src="./04-thumb.png">
+            <img id="room-05-thumb" crossorigin="anonymous" src="./05-thumb.png">
+            <img id="room-06-thumb" crossorigin="anonymous" src="./06-thumb.png">
+            <img id="room-07-thumb" crossorigin="anonymous" src="./07-thumb.png">
+            <img id="room-08-thumb" crossorigin="anonymous" src="./08-thumb.png">
+            <img id="room-09-thumb" crossorigin="anonymous" src="./09-thumb.png">
+            <img id="room-10-thumb" crossorigin="anonymous" src="./10-thumb.png">
+            <img id="room-11-thumb" crossorigin="anonymous" src="./11-thumb.png">
+            <img id="room-12-thumb" crossorigin="anonymous" src="./12-thumb.png">
+            <img id="room-13-thumb" crossorigin="anonymous" src="./13-thumb.png">
+            <img id="room-14-thumb" crossorigin="anonymous" src="./14-thumb.png">
+            <img id="room-15-thumb" crossorigin="anonymous" src="./15-thumb.png">
+            <img id="room-16-thumb" crossorigin="anonymous" src="./16-thumb.png">
+            <img id="room-17-thumb" crossorigin="anonymous" src="./17-thumb.png">
+            <img id="room-18-thumb" crossorigin="anonymous" src="./18-thumb.png">
+            <img id="room-19-thumb" crossorigin="anonymous" src="./19-thumb.png">
+            <img id="room-20-thumb" crossorigin="anonymous" src="./20-thumb.png">
+            <img id="room-21-thumb" crossorigin="anonymous" src="./21-thumb.png">
+            <img id="room-22-thumb" crossorigin="anonymous" src="./22-thumb.png">
 
-            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+            <audio id="click-sound" crossorigin="anonymous" src="./click.ogg"></audio>
 
-            <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-            <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-
-            <img id="room_01" crossorigin="anonymous" src="./01.jpg">
-            <img id="room_02" crossorigin="anonymous" src="./02.jpg">
+            <img id="room-01" crossorigin="anonymous" src="./01.jpg">
+            <img id="room-02" crossorigin="anonymous" src="./02.jpg">
+            <img id="room-03" crossorigin="anonymous" src="./03.jpg">
+            <img id="room-04" crossorigin="anonymous" src="./04.jpg">
+            <img id="room-05" crossorigin="anonymous" src="./05.jpg">
+            <img id="room-06" crossorigin="anonymous" src="./06.jpg">
+            <img id="room-07" crossorigin="anonymous" src="./07.jpg">
+            <img id="room-08" crossorigin="anonymous" src="./08.jpg">
+            <img id="room-09" crossorigin="anonymous" src="./09.jpg">
+            <img id="room-10" crossorigin="anonymous" src="./10.jpg">
+            <img id="room-11" crossorigin="anonymous" src="./11.jpg">
+            <img id="room-12" crossorigin="anonymous" src="./12.jpg">
+            <img id="room-13" crossorigin="anonymous" src="./13.jpg">
+            <img id="room-14" crossorigin="anonymous" src="./14.jpg">
+            <img id="room-15" crossorigin="anonymous" src="./15.jpg">
+            <img id="room-16" crossorigin="anonymous" src="./16.jpg">
+            <img id="room-17" crossorigin="anonymous" src="./17.jpg">
+            <img id="room-18" crossorigin="anonymous" src="./18.jpg">
+            <img id="room-19" crossorigin="anonymous" src="./19.jpg">
+            <img id="room-20" crossorigin="anonymous" src="./20.jpg">
+            <img id="room-21" crossorigin="anonymous" src="./21.jpg">
+            <img id="room-22" crossorigin="anonymous" src="./22.jpg">
+            
         </a-assets>
         
         <!-- 360-degree image.src="#city" -->
@@ -140,18 +176,15 @@
             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
         </a-sky>
 
-        <a-text id="testing" font="kelsonsans" value="d" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
+        <!-- <a-text id="testing" font="kelsonsans" value="d" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text> -->
 
-        <a-plane position="3.859 -1.340 -1.109" rotation="0 -45 0" width="5" height="5" canvas-material="width:256; height:256" canvas-text="text: 你好トーニカルマンドーレポポ; font: 80px serif; fillStyle: #006064"></a-plane>
-        
-        <a-text value="你好世界" font="custom-msdf.json" position="-0.389 0.25 -1.5" rotation="0 15 0" negate="false"></a-text>
+        <!-- <a-plane position="3.859 -1.340 -1.109" rotation="0 -45 0" width="5" height="5" canvas-material="width:256; height:256" canvas-text="text: 你好トーニカルマンドーレポポ; font: 80px serif; fillStyle: #006064"></a-plane> -->
+        <!-- <a-text value="你好世界" font="custom-msdf.json" position="-0.389 0.25 -1.5" rotation="0 15 0" negate="false"></a-text> -->
 
         <!-- Image links. -->
         <a-entity id="links">
-            <a-entity id="link_room_01_to_room_02" template="src: #link" data-src="#room_02" data-thumb="#city-thumb" position="-4.273 0 -3.880" rotation="0 45 0"></a-entity>
-            <a-entity id="link_room_02_to_room_01" template="src: #link" data-src="#room_01" data-thumb="#cubes-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
-            <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb" position="0 0 -6"></a-entity>
-            <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+            <a-entity id="link-room-01-to-room-02" template="src: #link" data-src="#room-02" data-thumb="#room-02-thumb" position="-4.273 0 -3.880" rotation="0 45 0"></a-entity>
+            <a-entity id="link-room-02-to-room-01" template="src: #link" data-src="#room-01" data-thumb="#room-01-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
         </a-entity>
 
         <!-- Camera + cursor. -->
