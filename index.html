@@ -134,7 +134,9 @@
                 // console.log(this.el.getAttribute("rotation"))
                 if (isInRoom01) {
                     this.el.setAttribute("rotation", {x: 0, y: -92, z: 0});
-                } 
+                } else {
+                    this.el.setAttribute("rotation", {x: 0, y: 0, z: 0});
+                }
             },
             setEnabled: function(targetEl, enabled) {
                 targetEl.setAttribute("visible", enabled);
