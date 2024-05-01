@@ -51,9 +51,15 @@
 
                 if (sky == "room_01") {
                     this.el.setAttribute("rotation", {x: 0, y: -92, z: 0});
-                    document.getElementById("link_room_01_to_room_02").setAttribute("visible", true);
+                    this.setEnabled(document.getElementById("link_room_01_to_room_02"), false);
                 } else if (sky == "room_02") {
                     document.getElementById("link_room_02_to_room_01").setAttribute("visible", true);
+                }
+            },
+            setEnabled: function(el, enabled) {
+                el.setAttribute("visible", enabled);
+                if (!enabled) {
+                    el.setAttribute("scale", "0 0 0");
                 }
             }
         });
@@ -84,7 +90,6 @@
         <p>
           Press <b>ctrl + alt + i</b> to enter inspector and tweak parameters.</p>
         <p>
-  
           <a href="http://github.com/feiss/aframe-environment-component">GitHub / How to use it</a>
         </p>
     </div>
