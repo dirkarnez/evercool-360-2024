@@ -17,14 +17,15 @@
     <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.1/dist/aframe-text-geometry-component.min.js"></script>
     <script src="https://cdn.rawgit.com/richardanaya/aframe-canvas/master/index.js"></script>
     <script src="https://ejeinc.github.io/aframe-canvas-text/canvas-text.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Image link template to be reused. #image-360 is the a-sky -->
     <script id="link" type="text/html">
         <a-entity class="link"
-            geometry="primitive: plane; height: 1; width: 2"
-            material="shader: flat; src: ${thumb}"
+            geometry="primitive: plane; height: 1; width: 1.4"
+            material="shader: flat; alphaTest: 0.5; src: ${thumb}"
             sound="on: click; src: #click-sound"
-            event-set__mouseenter="scale: 1.2 1.2 1"
+            event-set__mouseenter="scale: 1.2 2 1"
             event-set__mouseleave="scale: 1 1 1"
             event-set__click="_target: #image-360; _delay: 300; material.src: ${src}" 
             proxy-event="event: click; to: #image-360; as: fade">
@@ -64,73 +65,71 @@
                 const isInRoom17 = sky == "room-17";
                 const isInRoom18 = sky == "room-18";
                 const isInRoom19 = sky == "room-19";
-                const isInRoom20 = sky == "room-20";
                 const isInRoom21 = sky == "room-21";
                 const isInRoom22 = sky == "room-22";
   
-                this.setEnabled(document.getElementById("link-room-01-to-room-02"), isInRoom01);
-                this.setEnabled(document.getElementById("link-room-01-to-room-03"), isInRoom01);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-01-to-room-02"), isInRoom01);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-01-to-room-03"), isInRoom01);
 
-                this.setEnabled(document.getElementById("link-room-02-to-room-01"), isInRoom02);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-02-to-room-01"), isInRoom02);
 
-                this.setEnabled(document.getElementById("link-room-03-to-room-01"), isInRoom03);
-                this.setEnabled(document.getElementById("link-room-03-to-room-04"), isInRoom03);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-03-to-room-01"), isInRoom03);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-03-to-room-04"), isInRoom03);
 
-                this.setEnabled(document.getElementById("link-room-04-to-room-05"), isInRoom04);
-                this.setEnabled(document.getElementById("link-room-04-to-room-14"), isInRoom04);
-                this.setEnabled(document.getElementById("link-room-04-to-room-06"), isInRoom04);
-                this.setEnabled(document.getElementById("link-room-04-to-room-09"), isInRoom04);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-04-to-room-05"), isInRoom04);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-04-to-room-14"), isInRoom04);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-04-to-room-06"), isInRoom04);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-04-to-room-09"), isInRoom04);
 
-                this.setEnabled(document.getElementById("link-room-05-to-room-04"), isInRoom05);
-                this.setEnabled(document.getElementById("link-room-05-to-room-09"), isInRoom05);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-05-to-room-04"), isInRoom05);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-05-to-room-09"), isInRoom05);
 
-                this.setEnabled(document.getElementById("link-room-06-to-room-04"), isInRoom06);
-                this.setEnabled(document.getElementById("link-room-06-to-room-07"), isInRoom06);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-06-to-room-04"), isInRoom06);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-06-to-room-07"), isInRoom06);
 
-                this.setEnabled(document.getElementById("link-room-07-to-room-06"), isInRoom07);
-                this.setEnabled(document.getElementById("link-room-07-to-room-08"), isInRoom07);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-07-to-room-06"), isInRoom07);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-07-to-room-08"), isInRoom07);
 
-                this.setEnabled(document.getElementById("link-room-08-to-room-07"), isInRoom08);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-08-to-room-07"), isInRoom08);
 
-                this.setEnabled(document.getElementById("link-room-09-to-room-05"), isInRoom09);
-                this.setEnabled(document.getElementById("link-room-09-to-room-10"), isInRoom09);
-                this.setEnabled(document.getElementById("link-room-09-to-room-13"), isInRoom09);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-09-to-room-05"), isInRoom09);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-09-to-room-10"), isInRoom09);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-09-to-room-13"), isInRoom09);
 
-                this.setEnabled(document.getElementById("link-room-10-to-room-09"), isInRoom10);
-                this.setEnabled(document.getElementById("link-room-10-to-room-11"), isInRoom10);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-10-to-room-09"), isInRoom10);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-10-to-room-11"), isInRoom10);
 
-                this.setEnabled(document.getElementById("link-room-11-to-room-10"), isInRoom11);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-11-to-room-10"), isInRoom11);
 
-                this.setEnabled(document.getElementById("link-room-12-to-room-13"), isInRoom12);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-12-to-room-13"), isInRoom12);
 
-                this.setEnabled(document.getElementById("link-room-13-to-room-09"), isInRoom13);
-                this.setEnabled(document.getElementById("link-room-13-to-room-12"), isInRoom13);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-13-to-room-09"), isInRoom13);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-13-to-room-12"), isInRoom13);
                 
-                this.setEnabled(document.getElementById("link-room-14-to-room-04"), isInRoom14);
-                this.setEnabled(document.getElementById("link-room-14-to-room-15"), isInRoom14);
-                this.setEnabled(document.getElementById("link-room-14-to-room-20"), isInRoom14);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-14-to-room-04"), isInRoom14);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-14-to-room-15"), isInRoom14);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-14-to-room-18"), isInRoom14);
 
-                this.setEnabled(document.getElementById("link-room-15-to-room-14"), isInRoom15);
-                this.setEnabled(document.getElementById("link-room-15-to-room-16"), isInRoom15);
-                this.setEnabled(document.getElementById("link-room-15-to-room-17"), isInRoom15);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-15-to-room-14"), isInRoom15);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-15-to-room-16"), isInRoom15);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-15-to-room-17"), isInRoom15);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-15-to-room-21"), isInRoom15);
 
-                this.setEnabled(document.getElementById("link-room-16-to-room-15"), isInRoom16);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-16-to-room-15"), isInRoom16);
 
-                this.setEnabled(document.getElementById("link-room-17-to-room-15"), isInRoom17);
-                this.setEnabled(document.getElementById("link-room-17-to-room-18"), isInRoom17);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-17-to-room-15"), isInRoom17);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-17-to-room-18"), isInRoom17);
 
-                this.setEnabled(document.getElementById("link-room-18-to-room-17"), isInRoom18);
-                this.setEnabled(document.getElementById("link-room-18-to-room-19"), isInRoom18);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-18-to-room-17"), isInRoom18);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-18-to-room-19"), isInRoom18);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-18-to-room-14"), isInRoom18);
 
-                this.setEnabled(document.getElementById("link-room-19-to-room-18"), isInRoom19);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-19-to-room-18"), isInRoom19);
 
-                this.setEnabled(document.getElementById("link-room-20-to-room-14"), isInRoom20);
-                this.setEnabled(document.getElementById("link-room-20-to-room-21"), isInRoom20);
-                this.setEnabled(document.getElementById("link-room-20-to-room-22"), isInRoom20);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-21-to-room-22"), isInRoom21);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-21-to-room-15"), isInRoom21);
 
-                this.setEnabled(document.getElementById("link-room-21-to-room-20"), isInRoom21);
-
-                this.setEnabled(document.getElementById("link-room-22-to-room-20"), isInRoom22);
+                this.setEnabled(this.el.sceneEl.querySelector("#link-room-22-to-room-21"), isInRoom22);
                 
                 // .setAttribute('rotation', {x: 0, y: -92, z: 0});
                 // console.log(this.el.getAttribute("rotation"))
@@ -229,12 +228,10 @@
     <style>
         #about {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             position: absolute;
             z-index: 7001;
-            width: 300px;
-            top: 40px;
-            left: 40px;
+            top: 0;
             font: 14px 'Voces', Arial, sans-serif;
             color: white;
             line-height: 1.3rem;
@@ -246,41 +243,43 @@
         .about-button {
             /*height: 30px;*/
         }
+
+        .on-top {
+            z-index: 7001;
+        }
     </style>
 </head>
 
 <body>
-    <div id="about">
-        <button class="about-button" id="btn1" onclick="jumpTo('#room-01')">1 工廠外景</button>
-        <button class="about-button" id="btn2" onclick="jumpTo('#room-02')">2 電焊車內部</button>
-        <button class="about-button" id="btn3" onclick="jumpTo('#room-03')">3 工廠正門</button>
-        <button class="about-button" id="btn4" onclick="jumpTo('#room-04')">4 進入工廠區</button>
-        <button class="about-button" id="btn5" onclick="jumpTo('#room-05')">5 辦公大樓外</button>
-        <button class="about-button" id="btn6" onclick="jumpTo('#room-06')">6 盤管車間外</button>
-        <button class="about-button" id="btn7" onclick="jumpTo('#room-07')">7 盤管車間內部</button>
-        <button class="about-button" id="btn8" onclick="jumpTo('#room-08')">8 電控車間內部</button>
-        <button class="about-button" id="btn9" onclick="jumpTo('#room-09')">9 辦公大樓內部</button>
-        <button class="about-button" id="btn10" onclick="jumpTo('#room-10')">10 二樓辦公區域</button>
-        <button class="about-button" id="btn11" onclick="jumpTo('#room-11')">11 茶水間</button>
-        <button class="about-button" id="btn12" onclick="jumpTo('#room-12')">12 會議室內部</button>
-        <button class="about-button" id="btn13" onclick="jumpTo('#room-13')">13 榮譽牆</button>
-        <button class="about-button" id="btn14" onclick="jumpTo('#room-14')">14 裝卸平台</button>
-        <button class="about-button" id="btn15" onclick="jumpTo('#room-15')">15 鈑金車間</button>
-        <button class="about-button" id="btn16" onclick="jumpTo('#room-16')">16 PU發泡車間</button>
-        <button class="about-button" id="btn17" onclick="jumpTo('#room-17')">17 裝配車間</button>
-        <button class="about-button" id="btn18" onclick="jumpTo('#room-18')">18 空調產品綜合性能實驗室外部</button>
-        <button class="about-button" id="btn19" onclick="jumpTo('#room-19')">19 空調產品綜合性能實驗室內部</button>
-        <button class="about-button" id="btn20" onclick="jumpTo('#room-20')">20 倉庫</button>
-        <button class="about-button" id="btn21" onclick="jumpTo('#room-21')">21 氬弧焊車間</button>
-        <button class="about-button" id="btn22" onclick="jumpTo('#room-22')">22 表面處理車間</button>
-        <!-- <b>aframe-environment-component</b>
-        <p>A component for adding procedural environments to your <a href="http://aframe.io">A-Frame</a> demos and experiences.</p>
-        <p>
-          Press <b>ctrl + alt + i</b> to enter inspector and tweak parameters.</p>
-        <p>
-          <a href="http://github.com/feiss/aframe-environment-component">GitHub / How to use it</a>
-        </p> -->
-    </div>
+    <!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none; position: fixed; z-index: 7002" id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <button class="w3-bar-item w3-button" id="btn1" onclick="jumpTo('#room-01')">1 工廠外景</button>
+    <button class="w3-bar-item w3-button" id="btn2" onclick="jumpTo('#room-02')">2 電焊車內部</button>
+    <button class="w3-bar-item w3-button" id="btn3" onclick="jumpTo('#room-03')">3 工廠正門</button>
+    <button class="w3-bar-item w3-button" id="btn4" onclick="jumpTo('#room-04')">4 進入工廠區</button>
+    <button class="w3-bar-item w3-button" id="btn5" onclick="jumpTo('#room-05')">5 辦公大樓外</button>
+    <button class="w3-bar-item w3-button" id="btn6" onclick="jumpTo('#room-06')">6 盤管車間外</button>
+    <button class="w3-bar-item w3-button" id="btn7" onclick="jumpTo('#room-07')">7 盤管車間內部</button>
+    <button class="w3-bar-item w3-button" id="btn8" onclick="jumpTo('#room-08')">8 電控車間內部</button>
+    <button class="w3-bar-item w3-button" id="btn9" onclick="jumpTo('#room-09')">9 辦公大樓內部</button>
+    <button class="w3-bar-item w3-button" id="btn10" onclick="jumpTo('#room-10')">10 二樓辦公區域</button>
+    <button class="w3-bar-item w3-button" id="btn11" onclick="jumpTo('#room-11')">11 茶水間</button>
+    <button class="w3-bar-item w3-button" id="btn12" onclick="jumpTo('#room-12')">12 會議室內部</button>
+    <button class="w3-bar-item w3-button" id="btn13" onclick="jumpTo('#room-13')">13 榮譽牆</button>
+    <button class="w3-bar-item w3-button" id="btn14" onclick="jumpTo('#room-14')">14 裝卸平台</button>
+    <button class="w3-bar-item w3-button" id="btn15" onclick="jumpTo('#room-15')">15 鈑金車間</button>
+    <button class="w3-bar-item w3-button" id="btn16" onclick="jumpTo('#room-16')">16 PU發泡車間</button>
+    <button class="w3-bar-item w3-button" id="btn17" onclick="jumpTo('#room-17')">17 裝配車間</button>
+    <button class="w3-bar-item w3-button" id="btn18" onclick="jumpTo('#room-18')">18 空調產品綜合性能實驗室外部</button>
+    <button class="w3-bar-item w3-button" id="btn19" onclick="jumpTo('#room-19')">19 空調產品綜合性能實驗室內部</button>
+    <button class="w3-bar-item w3-button" id="btn21" onclick="jumpTo('#room-21')">21 氬弧焊車間</button>
+    <button class="w3-bar-item w3-button" id="btn22" onclick="jumpTo('#room-22')">22 表面處理車間</button>
+  </div>
+  <div class="on-top" style="position: fixed;">
+    <button class="w3-button w3-xlarge" style="background-color: #0E2DB2  !important; color: #fff !important;"  onclick="w3_open()">☰</button>
+  </div>
+  
     <a-scene>
         <a-assets>
             <img id="room-01-thumb" crossorigin="anonymous" src="./01-thumb.png">
@@ -302,7 +301,6 @@
             <img id="room-17-thumb" crossorigin="anonymous" src="./17-thumb.png">
             <img id="room-18-thumb" crossorigin="anonymous" src="./18-thumb.png">
             <img id="room-19-thumb" crossorigin="anonymous" src="./19-thumb.png">
-            <img id="room-20-thumb" crossorigin="anonymous" src="./20-thumb.png">
             <img id="room-21-thumb" crossorigin="anonymous" src="./21-thumb.png">
             <img id="room-22-thumb" crossorigin="anonymous" src="./22-thumb.png">
 
@@ -327,7 +325,6 @@
             <img id="room-17" crossorigin="anonymous" src="./17.jpg">
             <img id="room-18" crossorigin="anonymous" src="./18.jpg">
             <img id="room-19" crossorigin="anonymous" src="./19.jpg">
-            <img id="room-20" crossorigin="anonymous" src="./20.jpg">
             <img id="room-21" crossorigin="anonymous" src="./21.jpg">
             <img id="room-22" crossorigin="anonymous" src="./22.jpg">
             
@@ -347,90 +344,88 @@
         <!-- Image links. -->
         <a-entity id="links">
             <!-- 1 ok -->
-            <a-entity id="link-room-01-to-room-02" template="src: #link" data-src="#room-02" data-thumb="#room-02-thumb" position="-5 0 5" rotation="0 145 0"></a-entity>
-            <a-entity id="link-room-01-to-room-03" template="src: #link" data-src="#room-03" data-thumb="#room-03-thumb" position="-6 0 0" rotation="0 90 0"></a-entity>
+            <a-entity id="link-room-01-to-room-02" template="src: #link" data-src="#room-02" data-thumb="#room-02-thumb" position="-5 0 5" rotation="-80.000 145 0"></a-entity>
+            <a-entity id="link-room-01-to-room-03" template="src: #link" data-src="#room-03" data-thumb="#room-03-thumb" position="-6 0 0" rotation="-80.000 90 0"></a-entity>
 
             <!-- 2 ok -->
-            <a-entity id="link-room-02-to-room-01" template="src: #link" data-src="#room-01" data-thumb="#room-01-thumb" position="1.1 0 5" rotation="0 210 0"></a-entity>
+            <a-entity id="link-room-02-to-room-01" template="src: #link" data-src="#room-01" data-thumb="#room-01-thumb" position="1.1 0 5" rotation="-80.000 210 0"></a-entity>
 
             <!-- 3 ok -->
-            <a-entity id="link-room-03-to-room-01" template="src: #link" data-src="#room-01" data-thumb="#room-01-thumb" position="0 0 -5" rotation="0 0 0"></a-entity>
-            <a-entity id="link-room-03-to-room-04" template="src: #link" data-src="#room-04" data-thumb="#room-04-thumb" position="-6.5 0 0" rotation="0 90 0"></a-entity>
+            <a-entity id="link-room-03-to-room-01" template="src: #link" data-src="#room-01" data-thumb="#room-01-thumb" position="0 0 -5" rotation="-80.000 0 0"></a-entity>
+            <a-entity id="link-room-03-to-room-04" template="src: #link" data-src="#room-04" data-thumb="#room-04-thumb" position="-6.5 0 0" rotation="-80.000 90 0"></a-entity>
 
             <!-- 4 ok -->
-            <a-entity id="link-room-04-to-room-05" template="src: #link" data-src="#room-05" data-thumb="#room-05-thumb" position="0 0 5" rotation="0 180 0"></a-entity>
-            <a-entity id="link-room-04-to-room-14" template="src: #link" data-src="#room-14" data-thumb="#room-14-thumb" position="-8.685 0.784 -2.420" rotation="0 72.500 0"></a-entity>
-            <a-entity id="link-room-04-to-room-06" template="src: #link" data-src="#room-06" data-thumb="#room-06-thumb" position="-2.912 0 -3.114" rotation="0 0 0"></a-entity>
-            <a-entity id="link-room-04-to-room-09" template="src: #link" data-src="#room-09" data-thumb="#room-09-thumb" position="-3 0 8" rotation="0 160 0"></a-entity>
+            <a-entity id="link-room-04-to-room-05" template="src: #link" data-src="#room-05" data-thumb="#room-05-thumb" position="0 0 5" rotation="-80.000 180 0"></a-entity>
+            <a-entity id="link-room-04-to-room-14" template="src: #link" data-src="#room-14" data-thumb="#room-14-thumb" position="-8.685 0.784 -2.420" rotation="-80.000 72.500 0"></a-entity>
+            <a-entity id="link-room-04-to-room-06" template="src: #link" data-src="#room-06" data-thumb="#room-06-thumb" position="-2.912 0 -3.114" rotation="-80.000 0 0"></a-entity>
+            <a-entity id="link-room-04-to-room-09" template="src: #link" data-src="#room-09" data-thumb="#room-09-thumb" position="-3 0 8" rotation="-80.000 160 0"></a-entity>
 
             <!-- 5 ok -->
-            <a-entity id="link-room-05-to-room-04" template="src: #link" data-src="#room-04" data-thumb="#room-04-thumb" position="1.305 0 -2.281" rotation="0 -40.000  0"></a-entity>
-            <a-entity id="link-room-05-to-room-09" template="src: #link" data-src="#room-09" data-thumb="#room-09-thumb" position="-8.000 0 1.500" rotation="0 105.000 0"></a-entity>
+            <a-entity id="link-room-05-to-room-04" template="src: #link" data-src="#room-04" data-thumb="#room-04-thumb" position="1.305 0 -2.281" rotation="-80.000 -40.000  0"></a-entity>
+            <a-entity id="link-room-05-to-room-09" template="src: #link" data-src="#room-09" data-thumb="#room-09-thumb" position="-8.000 0 1.500" rotation="-80.000 105.000 0"></a-entity>
 
             <!-- 6 ok -->
-            <a-entity id="link-room-06-to-room-04" template="src: #link" data-src="#room-04" data-thumb="#room-04-thumb" position="2.516 0 2.995" rotation="0 200 0"></a-entity>
-            <a-entity id="link-room-06-to-room-07" template="src: #link" data-src="#room-07" data-thumb="#room-07-thumb" position="-4.015 0 -3.332" rotation="0 50.000 0"></a-entity>
+            <a-entity id="link-room-06-to-room-04" template="src: #link" data-src="#room-04" data-thumb="#room-04-thumb" position="2.516 0 2.995" rotation="-80.000 200 0"></a-entity>
+            <a-entity id="link-room-06-to-room-07" template="src: #link" data-src="#room-07" data-thumb="#room-07-thumb" position="-4.015 0 -3.332" rotation="-80.000 50.000 0"></a-entity>
 
             <!-- 7 not ok -->
-            <a-entity id="link-room-07-to-room-06" template="src: #link" data-src="#room-06" data-thumb="#room-06-thumb" position="2.364 0 -6" rotation="0 -50.000 0"></a-entity>
-            <a-entity id="link-room-07-to-room-08" template="src: #link" data-src="#room-08" data-thumb="#room-08-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
+            <a-entity id="link-room-07-to-room-06" template="src: #link" data-src="#room-06" data-thumb="#room-06-thumb" position="2.364 0 -6" rotation="-80.000 -50.000 0"></a-entity>
+            <a-entity id="link-room-07-to-room-08" template="src: #link" data-src="#room-08" data-thumb="#room-08-thumb" position="-2.451 0.168 3.475" rotation="-80.000 105.000 0"></a-entity>
 
             <!-- 8 not ok -->
-            <a-entity id="link-room-08-to-room-07" template="src: #link" data-src="#room-07" data-thumb="#room-07-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
+            <a-entity id="link-room-08-to-room-07" template="src: #link" data-src="#room-07" data-thumb="#room-07-thumb" position="4.840 0 0.625" rotation="-80.000 240.000 0"></a-entity>
 
             <!-- 9 ok -->
-            <a-entity id="link-room-09-to-room-05" template="src: #link" data-src="#room-05" data-thumb="#room-05-thumb" position="1.5 0 -1" rotation="0 -60 0"></a-entity>
-            <a-entity id="link-room-09-to-room-10" template="src: #link" data-src="#room-10" data-thumb="#room-10-thumb" position="-2.135 1 -5.781" rotation="0 30 0"></a-entity>
-            <a-entity id="link-room-09-to-room-13" template="src: #link" data-src="#room-13" data-thumb="#room-13-thumb" position="-8 0 -1.5" rotation="0 90 0"></a-entity>
+            <a-entity id="link-room-09-to-room-05" template="src: #link" data-src="#room-05" data-thumb="#room-05-thumb" position="1.5 0 -1" rotation="-80.000 -60 0"></a-entity>
+            <a-entity id="link-room-09-to-room-10" template="src: #link" data-src="#room-10" data-thumb="#room-10-thumb" position="-2.135 1 -5.781" rotation="-80.000 30 0"></a-entity>
+            <a-entity id="link-room-09-to-room-13" template="src: #link" data-src="#room-13" data-thumb="#room-13-thumb" position="-8 0 -1.5" rotation="-80.000 90 0"></a-entity>
 
             <!-- 10 ok -->
-            <a-entity id="link-room-10-to-room-09" template="src: #link" data-src="#room-09" data-thumb="#room-09-thumb" position="0.528 0 7.146" rotation="0 190.000 0"></a-entity>
-            <a-entity id="link-room-10-to-room-11" template="src: #link" data-src="#room-11" data-thumb="#room-11-thumb" position="1.713 0 5.176" rotation="0 250.000 0"></a-entity>
+            <a-entity id="link-room-10-to-room-09" template="src: #link" data-src="#room-09" data-thumb="#room-09-thumb" position="0.528 0 7.146" rotation="-80.000 190.000 0"></a-entity>
+            <a-entity id="link-room-10-to-room-11" template="src: #link" data-src="#room-11" data-thumb="#room-11-thumb" position="1.713 0 5.176" rotation="-80.000 250.000 0"></a-entity>
 
             <!-- 11 ok -->
-            <a-entity id="link-room-11-to-room-10" template="src: #link" data-src="#room-10" data-thumb="#room-10-thumb" position="0.979 0 1.371" rotation="0 220.000 0"></a-entity>
+            <a-entity id="link-room-11-to-room-10" template="src: #link" data-src="#room-10" data-thumb="#room-10-thumb" position="0.979 0 1.371" rotation="-80.000 220.000 0"></a-entity>
             
             <!-- 12 ok -->
-            <a-entity id="link-room-12-to-room-13" template="src: #link" data-src="#room-13" data-thumb="#room-13-thumb" position="0.231 0 -3.842" rotation="0 0 0"></a-entity>
+            <a-entity id="link-room-12-to-room-13" template="src: #link" data-src="#room-13" data-thumb="#room-13-thumb" position="0.231 0 -3.842" rotation="-80.000 0 0"></a-entity>
 
             <!-- 13 ok --> 
-            <a-entity id="link-room-13-to-room-09" template="src: #link" data-src="#room-09" data-thumb="#room-09-thumb" position="2.312 0 1.146" rotation="0 250.000 0"></a-entity>
-            <a-entity id="link-room-13-to-room-12" template="src: #link" data-src="#room-12" data-thumb="#room-12-thumb" position="-0.266 0 4.012" rotation="0 210.000 0"></a-entity>
+            <a-entity id="link-room-13-to-room-09" template="src: #link" data-src="#room-09" data-thumb="#room-09-thumb" position="2.312 0 1.146" rotation="-80.000 250.000 0"></a-entity>
+            <a-entity id="link-room-13-to-room-12" template="src: #link" data-src="#room-12" data-thumb="#room-12-thumb" position="-0.266 0 4.012" rotation="-80.000 210.000 0"></a-entity>
 
             <!-- 14 ok -->
-            <a-entity id="link-room-14-to-room-04" template="src: #link" data-src="#room-04" data-thumb="#room-04-thumb" position="-0.076 0 4.869" rotation="0 190.000 0"></a-entity>
-            <a-entity id="link-room-14-to-room-15" template="src: #link" data-src="#room-15" data-thumb="#room-15-thumb" position="-8.307 0 1.569" rotation="0 105.000 0"></a-entity>
-            <a-entity id="link-room-14-to-room-20" template="src: #link" data-src="#room-20" data-thumb="#room-20-thumb" position="0.676 0 -4.835" rotation="0 -50.000 0"></a-entity>
+            <a-entity id="link-room-14-to-room-04" template="src: #link" data-src="#room-04" data-thumb="#room-04-thumb" position="-0.076 0 4.869" rotation="-80.000 190.000 0"></a-entity>
+            <a-entity id="link-room-14-to-room-15" template="src: #link" data-src="#room-15" data-thumb="#room-15-thumb" position="-8.307 0 1.569" rotation="-80.000 105.000 0"></a-entity>
+            <a-entity id="link-room-14-to-room-18" template="src: #link" data-src="#room-18" data-thumb="#room-18-thumb" position="0.676 0 -4.835" rotation="-80.000 -50.000 0"></a-entity>
 
             <!-- 15 ok -->
-            <a-entity id="link-room-15-to-room-14" template="src: #link" data-src="#room-14" data-thumb="#room-14-thumb" position="5.140 0 0.634" rotation="0 -90.000 0"></a-entity>
-            <a-entity id="link-room-15-to-room-16" template="src: #link" data-src="#room-16" data-thumb="#room-16-thumb" position="2.429 0 7.129" rotation="0 206.350 0"></a-entity>
-            <a-entity id="link-room-15-to-room-17" template="src: #link" data-src="#room-17" data-thumb="#room-17-thumb" position="1.875 0 -3.121" rotation="0 -41.920 0"></a-entity>
+            <a-entity id="link-room-15-to-room-14" template="src: #link" data-src="#room-14" data-thumb="#room-14-thumb" position="5.140 0 0.634" rotation="-80.000 -90.000 0"></a-entity>
+            <a-entity id="link-room-15-to-room-16" template="src: #link" data-src="#room-16" data-thumb="#room-16-thumb" position="2.429 0 7.129" rotation="-80.000 206.350 0"></a-entity>
+            <a-entity id="link-room-15-to-room-17" template="src: #link" data-src="#room-17" data-thumb="#room-17-thumb" position="1.875 0 -3.121" rotation="-80.000 -41.920 0"></a-entity>
+            <a-entity id="link-room-15-to-room-21" template="src: #link" data-src="#room-21" data-thumb="#room-21-thumb" position="5.003 0 3.800" rotation="-80.000 230.000 0"></a-entity>
 
             <!-- 16 ok -->
-            <a-entity id="link-room-16-to-room-15" template="src: #link" data-src="#room-15" data-thumb="#room-15-thumb" position="-6.270 0 0.210" rotation="0 94.870 0"></a-entity>
+            <a-entity id="link-room-16-to-room-15" template="src: #link" data-src="#room-15" data-thumb="#room-15-thumb" position="-6.270 0 0.210" rotation="-80.000 94.870 0"></a-entity>
 
             <!-- 17 ok -->
-            <a-entity id="link-room-17-to-room-15" template="src: #link" data-src="#room-15" data-thumb="#room-15-thumb" position="3.677 0 2.274" rotation="0 -103.150 0"></a-entity>
-            <a-entity id="link-room-17-to-room-18" template="src: #link" data-src="#room-18" data-thumb="#room-18-thumb" position="-7.803 0 -0.103" rotation="0 95.520 0"></a-entity>
+            <a-entity id="link-room-17-to-room-15" template="src: #link" data-src="#room-15" data-thumb="#room-15-thumb" position="3.677 0 2.274" rotation="-80.000 -103.150 0"></a-entity>
+            <a-entity id="link-room-17-to-room-18" template="src: #link" data-src="#room-18" data-thumb="#room-18-thumb" position="-7.803 0 -0.103" rotation="-80.000 95.520 0"></a-entity>
 
             <!-- 18 ok -->
-            <a-entity id="link-room-18-to-room-17" template="src: #link" data-src="#room-17" data-thumb="#room-17-thumb" position="2.179 0 -2.342" rotation="0 -39.940 0"></a-entity>
-            <a-entity id="link-room-18-to-room-19" template="src: #link" data-src="#room-19" data-thumb="#room-19-thumb" position="-6.723 0 -1.482" rotation="0 80.000 0"></a-entity>
+            <a-entity id="link-room-18-to-room-17" template="src: #link" data-src="#room-17" data-thumb="#room-17-thumb" position="2.179 0 -2.342" rotation="-80.000 -39.940 0"></a-entity>
+            <a-entity id="link-room-18-to-room-19" template="src: #link" data-src="#room-19" data-thumb="#room-19-thumb" position="-6.723 0 -1.482" rotation="-80.000 80.000 0"></a-entity>
+            <a-entity id="link-room-18-to-room-14" template="src: #link" data-src="#room-14" data-thumb="#room-14-thumb" position="-3.489 1.450 -5.826" rotation="-80.000 28.240 0"></a-entity>
 
             <!-- 19 ok -->
-            <a-entity id="link-room-19-to-room-18" template="src: #link" data-src="#room-18" data-thumb="#room-18-thumb" position="0.284 0 -1.877" rotation="0 -35.000 0"></a-entity>
+            <a-entity id="link-room-19-to-room-18" template="src: #link" data-src="#room-18" data-thumb="#room-18-thumb" position="0.284 0 -1.877" rotation="-80.000 -35.000 0"></a-entity>
 
-            <!-- 20 -->
-            <a-entity id="link-room-20-to-room-14" template="src: #link" data-src="#room-14" data-thumb="#room-14-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
-            <a-entity id="link-room-20-to-room-21" template="src: #link" data-src="#room-21" data-thumb="#room-21-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
-            <a-entity id="link-room-20-to-room-22" template="src: #link" data-src="#room-22" data-thumb="#room-22-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
+            <!-- 21 ok -->
+            <a-entity id="link-room-21-to-room-22" template="src: #link" data-src="#room-22" data-thumb="#room-22-thumb" position="-3.099 0 -5.628" rotation="-80.000 6.970 0"></a-entity>
+            <a-entity id="link-room-21-to-room-15" template="src: #link" data-src="#room-15" data-thumb="#room-15-thumb" position="-6.175 0 -6.771" rotation="-80.000 30 0"></a-entity>
 
-            <!-- 21 -->
-            <a-entity id="link-room-21-to-room-20" template="src: #link" data-src="#room-20" data-thumb="#room-20-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
-
-            <!-- 22 -->
-            <a-entity id="link-room-22-to-room-20" template="src: #link" data-src="#room-20" data-thumb="#room-20-thumb" position="-4.937 0 0.920" rotation="0 105.000 0"></a-entity>
+            <!-- 22 ok -->
+            <a-entity id="link-room-22-to-room-21" template="src: #link" data-src="#room-21" data-thumb="#room-21-thumb" position="-5.872 0 -0.188" rotation="-80.000 90.000 0"></a-entity>
         </a-entity>
 
         <!-- Camera + cursor. -->
@@ -446,6 +441,13 @@
         function jumpTo(imageIdWithNumberSign) {
             document.getElementById("image-360").setAttribute('src', imageIdWithNumberSign/*"#room-09"*/);
         }
+        function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
     </script>
 </body>
 
